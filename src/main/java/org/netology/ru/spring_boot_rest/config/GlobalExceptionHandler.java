@@ -3,6 +3,7 @@ package org.netology.ru.spring_boot_rest.config;
 import org.netology.ru.spring_boot_rest.exeption.InvalidCredentials;
 import org.netology.ru.spring_boot_rest.exeption.UnauthorizedUser;
 import org.netology.ru.spring_boot_rest.repository.UserRepository;
+import org.netology.ru.spring_boot_rest.service.AuthorizationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,11 @@ public class GlobalExceptionHandler {
     @Bean
     public UserRepository user() {
         return new UserRepository();
+    }
+
+    @Bean
+    public AuthorizationService service() {
+        return new AuthorizationService();
     }
 
 }
