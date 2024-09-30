@@ -4,12 +4,19 @@ import org.netology.ru.spring_boot_rest.exeption.InvalidCredentials;
 import org.netology.ru.spring_boot_rest.exeption.UnauthorizedUser;
 import org.netology.ru.spring_boot_rest.post.Authorities;
 import org.netology.ru.spring_boot_rest.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class AuthorizationService {
-    private UserRepository userRepository;
+    private  UserRepository userRepository;
+
+    //@Autowired
+    public AuthorizationService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {

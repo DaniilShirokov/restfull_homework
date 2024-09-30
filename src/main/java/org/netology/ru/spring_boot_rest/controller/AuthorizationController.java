@@ -11,8 +11,12 @@ import java.util.List;
 
 @RestController
 public class AuthorizationController {
-    private  AuthorizationService service;
+    private AuthorizationService service;
 
+    //@Autowired
+    public AuthorizationController(AuthorizationService service) {
+        this.service = service;
+    }
 
 
     @GetMapping("/authorize")
